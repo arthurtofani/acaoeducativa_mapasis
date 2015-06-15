@@ -1,5 +1,8 @@
-node_modules
+node_modules/
+bower_components/
+*.log
 dist
 .tmp
 .sass-cache
-bower_components
+build/
+dist/
