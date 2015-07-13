@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-sm-8" id="map"></div>
+  <div class="col-sm-4">
+	<div class="box-main row">
+		<div class="col-xs-8 box">{{city.cidade}}</div>
+		<div class="col-xs-4 box">{{city.uf}}</div>
+	</div>
+      <table class="table" id="tabledata">
+        <tr>
+          <th>IDH-M</th>
+          <td>{{city["IDH"]}}</td>
+        </tr>
+        <tr>
+          <th>Sistema de ensino</th>
+          <td>{{city["SISTEMA"]}}</td>
+        </tr>        
+        <tr>
+          <th>Possui plano municipal?</th>
+          <td>{{city["POSSUI_PLANO_MUNIC"]}}</td>
+        </tr>
+        <tr>
+          <th>sistema próprio?</th>
+          <td>{{city["SIST_PROPRIO"]}}</td>
+        </tr>
+
+      </table>
+
+      <button class="btn btn-sm" ng-click="back()">Voltar</button>
+  </div>
+</div>
+<script>
+  L.mapbox.accessToken = 'pk.eyJ1IjoiYWNhb2VkdWNhdGl2YSIsImEiOiJwcFlZQ0ZBIn0.OgLzvCt_Kzb_EeKXRYfTYw';
+  var globalmap = L.mapbox.map('map', 'acaoeducativa.mg3o1opk');
+</script>
+<style>
+  #map {
+    height:500px;
+  }
+
+  .lat-esq {
+    width:100%;
+    background-color:#F6F0E3;
+    border-radius: 7px;
+    min-height:178px;
+  }
+  #tabledata {
+    font-size:10.5px;
+  }
+
+  .box {
+  	background-color: #1F1B48;
+  	color:white;
+  	height:60px;
+  	padding:7px;
+  	text-align: center
+  }
+</style>

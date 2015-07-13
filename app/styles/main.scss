@@ -16,6 +16,10 @@ body {
   padding-bottom: 20px;
 }
 
+.general-header {
+  margin-bottom:5px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -89,4 +93,10 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+
+
+}
+
+.cod_munic {
+  display:none;
 }

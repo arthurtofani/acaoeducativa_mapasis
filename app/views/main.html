@@ -1,23 +1,76 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="general-header row">
+  <div class="general-header-search col-xs-2">
+    Buscar:
+  </div>
+  <div class="general-header-search col-xs-6">
+    <angucomplete-alt id="ex1"
+        placeholder="Buscar municípios"
+        pause="100"
+        selected-object="selectedCity"
+        local-data="cities"
+        search-fields="cidade"
+        title-field="cidade"
+        minlength="1"
+        input-class="form-control form-control-small"/>
+
+  </div>
+  <div class="general-header-maps col-xs-4">
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default" ng-click="selectMap(0)">Cidades</button>
+      <button type="button" class="btn btn-default" ng-click="selectMap(1)">Estados</button>
+    </div>
+  </div>
+  
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<div class="row">
+  <div class="col-sm-8" id="map"></div>
+  <div class="col-sm-4">
+    <div class="lat-esq">
+    <div class="text-center">
+    <strong>{{city.cidade}} / {{city.uf}}</strong>
+    </div>
+      <table class="table" id="tabledata">
+        <tr>
+          <th>IDH-M</th>
+          <td>{{city["IDH"]}}</td>
+        </tr>
+        <tr>
+          <th>Sistema de ensino</th>
+          <td>{{city["SISTEMA"]}}</td>
+        </tr>        
+        <tr>
+          <th>Possui plano municipal?</th>
+          <td>{{city["POSSUI_PLANO_MUNIC"]}}</td>
+        </tr>
+        <tr>
+          <th>sistema próprio?</th>
+          <td>{{city["SIST_PROPRIO"]}}</td>
+        </tr>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+      </table>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+      
+    </div>
+    <a href="#/cities/{{city.id}}" class="btn btn-primary btn-block">Detalhes</a>
+  </div>
 </div>
+<script>
+  
+  //L.mapbox.map('map', 'acaoeducativa.mg3o1opk');
+</script>
+<style>
+  #map {
+    height:500px;
+  }
+
+  .lat-esq {
+    width:100%;
+    background-color:#F6F0E3;
+    border-radius: 7px;
+    min-height:178px;
+  }
+  #tabledata {
+    font-size:10.5px;
+  }
+</style>
