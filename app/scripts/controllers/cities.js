@@ -17,13 +17,11 @@ angular.module('mapaSistensinoApp')
     
     $scope.defineCity = function(cityid){
       var c = $scope.city
-      debugger
+
       // var lat = c.lat
       var lat = parseFloat(c.lat.replace(",", "."))+0
       globalmap.setView([lat, c.lng], 9)
-      globalmap.on('click', function(e) {
-    console.log (e.containerPoint.toString() + ', ' + e.latlng.toString());
-});
+
     }
 
     $scope.back = function(){
