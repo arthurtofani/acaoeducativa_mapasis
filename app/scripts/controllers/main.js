@@ -15,11 +15,12 @@ angular.module('mapaSistensinoApp')
     $scope.cities = null;
     $scope.loading = true;
     $scope.city = null
+    $scope.currentMap = 0;
 
     $rootScope.$watch("selectedCityId", function(){
     	$scope.city = $rootScope.selectedCity;
     })
-
+    $scope.layers = []
     $scope.loadData = function(){
       if($scope.cities==null){
         if($rootScope.loading){
@@ -31,20 +32,33 @@ angular.module('mapaSistensinoApp')
           $scope.loadDataFromRootScope();
         }
       }
-    }
-
-    $scope.selectMap = function(v){
       L.mapbox.accessToken = 'pk.eyJ1IjoiYWNhb2VkdWNhdGl2YSIsImEiOiJwcFlZQ0ZBIn0.OgLzvCt_Kzb_EeKXRYfTYw';
      // var lmap = (!v ? 'acaoeducativa.mg3o1opk' : 'acaoeducativa.mmoj2gej')
       if(globalmap) globalmap.remove();
-      globalmap = L.mapbox.map('map', 'acaoeducativa.o6jlc4ii');
-      layer = L.mapbox.tileLayer('acaoeducativa.sist_idh')
-      layer.setZIndex(1)
-      layer.addTo(globalmap)
+      globalmap = L.mapbox.map('map', 'acaoeducativa.o6mn61cn').setView([-15, -55], 4);
+      //globalmap.setCenter([-47.8455,-15.7711,6])
+      $scope.layers[0] = L.mapbox.tileLayer('acaoeducativa.aaa')
+      $scope.layers[0].addTo(globalmap)
+      $scope.layers[1] = L.mapbox.tileLayer('acaoeducativa.sist_idh')
+      $scope.layers[1].addTo(globalmap)
+      $scope.layers[2] = L.mapbox.tileLayer('acaoeducativa.sist_plano_mun')
+      $scope.layers[2].addTo(globalmap)
+      $scope.layers[3] = L.mapbox.tileLayer('acaoeducativa.sist_proprio')
+      $scope.layers[3].addTo(globalmap)
+      $scope.lastZindex = 0
 
 
     }
 
+    $scope.selectMap = function(v){
+      $scope.currentMap = v;
+      $scope.layers[$scope.currentMap].setZIndex(++$scope.lastZindex)
+    }
+
+    $scope.showActive = function(n){
+      return ( n == $scope.currentMap ? "active" : "oi")
+      //console.log( n == $scope.currentMap, n,  $scope.currentMap)
+    }
 
     $scope.bindMouseClick = function(){
       $(".leaflet-container").click(function(e){
@@ -62,6 +76,7 @@ angular.module('mapaSistensinoApp')
       }
 
     })
+
     $scope.loadDataFromRootScope = function(){
       $scope.ufs = $rootScope.ufs;
       $scope.cities = $rootScope.cities;
@@ -72,5 +87,5 @@ angular.module('mapaSistensinoApp')
 
 
     $scope.loadData();
-    $scope.selectMap();
+    $scope.selectMap(0);
   });

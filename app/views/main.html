@@ -38,7 +38,7 @@
           <td>{{city["POSSUI_PLANO_MUNIC"]}}</td>
         </tr>
         <tr>
-          <th>sistema próprio?</th>
+          <th>Sistema próprio?</th>
           <td>{{city["SIST_PROPRIO"]}}</td>
         </tr>
 
@@ -46,7 +46,12 @@
 
 
     </div>
-    <a href="#/cities/{{city.id}}" class="btn btn-primary btn-block">Detalhes</a>
+    <div class="btn-group-vertical" role="group" aria-label="..." style="width:100%;">
+      <button type="button" class="btn btn-default" ng-class="showActive(0)" ng-click="selectMap(0)">Sistemas de ensino</button>
+      <button type="button" class="btn btn-default" ng-class="showActive(1)" ng-click="selectMap(1)">IDH-M</button>
+      <button type="button" class="btn btn-default" ng-class="showActive(2)" ng-click="selectMap(2)">Plano municipal</button>
+      <button type="button" class="btn btn-default" ng-class="showActive(3)" ng-click="selectMap(3)">Sistema Próprio</button>
+    </div>
   </div>
 </div>
 <script>
@@ -58,13 +63,5 @@
     height:500px;
   }
 
-  .lat-esq {
-    width:100%;
-    background-color:#F6F0E3;
-    border-radius: 7px;
-    min-height:178px;
-  }
-  #tabledata {
-    font-size:10.5px;
-  }
+
 </style>

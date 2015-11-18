@@ -16,7 +16,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch', 
+    'ngTouch',
     'angucomplete-alt'
   ]).run(function ($rootScope, $http){
     $rootScope.loading = true;
@@ -42,6 +42,7 @@ angular
     }
     $rootScope.setCity = function(id){
       $rootScope.selectedCity = $.grep($rootScope.cities, function(e){ return e.id == id; })[0];
+      if(id=='') return;
       $rootScope.selectedCityId = $rootScope.selectedCity.id;
     }
     $rootScope.getUfs()
@@ -55,7 +56,7 @@ angular
       .when('/cities/:city_id', {
         templateUrl: 'views/cities.html',
         controller: 'CitiesCtrl'
-      })      
+      })
       .when('/states/:state_id', {
         templateUrl: 'views/states.html',
         controller: 'StatesCtrl'

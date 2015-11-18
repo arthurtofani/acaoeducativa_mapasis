@@ -22,7 +22,31 @@ a88a67
 /* Space out content a bit */
 body {
   font-family: 'Fjalla One', sans-serif;
+  background-color:white;
+}
+
+.index-header {
+background-color: white;
+background-image: url(/styles/header.png);
+height: 148px;
+background-repeat: no-repeat;
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+background-size: contain;
+}
+
+.index-all {
+  width:100%;
+  background-color:#ffffc3;
+}
+
+.index-view {
+  width:800px;
+  margin-left:auto;
+  margin-right:auto;
   background-color:#ffc55c;
+
 }
 
 .internal {
@@ -60,6 +84,9 @@ body {
   color:#ffc55c;
 }
 
+#tabledata {
+  font-size:12.5px !important;
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
