@@ -1,5 +1,6 @@
 'use strict';
 var globalmap
+var layer
 /**
  * @ngdoc function
  * @name mapaSistensinoApp.controller:MainCtrl
@@ -34,15 +35,19 @@ angular.module('mapaSistensinoApp')
 
     $scope.selectMap = function(v){
       L.mapbox.accessToken = 'pk.eyJ1IjoiYWNhb2VkdWNhdGl2YSIsImEiOiJwcFlZQ0ZBIn0.OgLzvCt_Kzb_EeKXRYfTYw';
-      var lmap = (!v ? 'acaoeducativa.mg3o1opk' : 'acaoeducativa.mmoj2gej')
+     // var lmap = (!v ? 'acaoeducativa.mg3o1opk' : 'acaoeducativa.mmoj2gej')
       if(globalmap) globalmap.remove();
-      globalmap = L.mapbox.map('map', lmap);
+      globalmap = L.mapbox.map('map', 'acaoeducativa.o6jlc4ii');
+      layer = L.mapbox.tileLayer('acaoeducativa.sist_idh')
+      layer.setZIndex(1)
+      layer.addTo(globalmap)
+
 
     }
 
 
     $scope.bindMouseClick = function(){
-      $(".leaflet-container").click(function(e){ 
+      $(".leaflet-container").click(function(e){
         var cityId = $(".cod_munic").text();
         $rootScope.setCity(cityId);
         $scope.$apply();
@@ -55,7 +60,7 @@ angular.module('mapaSistensinoApp')
       } catch(e){
 
       }
-      
+
     })
     $scope.loadDataFromRootScope = function(){
       $scope.ufs = $rootScope.ufs;

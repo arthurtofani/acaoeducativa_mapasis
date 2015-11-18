@@ -9,24 +9,22 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css" />
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-            
+
     <!-- endbuild -->
-    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.0/mapbox.css' rel='stylesheet' />    
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.0/mapbox.css' rel='stylesheet' />
   </head>
   <body ng-app="mapaSistensinoApp">
     <!--[if lt IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="container">
 
-      <div ng-view=""></div>
-      <div class="general-footer">
+      <div class="internal" ng-view=""></div>
 
-      </div>
     </div>
 
 

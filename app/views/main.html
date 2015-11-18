@@ -1,6 +1,6 @@
 <div class="general-header row">
-  <div class="general-header-search col-xs-2">
-    Buscar:
+  <div class="general-header-search general-header-search-text col-xs-2">
+    BUSCAR:
   </div>
   <div class="general-header-search col-xs-6">
     <angucomplete-alt id="ex1"
@@ -14,22 +14,16 @@
         input-class="form-control form-control-small"/>
 
   </div>
-  <div class="general-header-maps col-xs-4">
-    <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default" ng-click="selectMap(0)">Cidades</button>
-      <button type="button" class="btn btn-default" ng-click="selectMap(1)">Estados</button>
-    </div>
+  <div class="general-header-city col-xs-4">
+   <p>{{city.cidade}} / {{city.uf}}</p>
   </div>
-  
+
 </div>
 
 <div class="row">
   <div class="col-sm-8" id="map"></div>
   <div class="col-sm-4">
     <div class="lat-esq">
-    <div class="text-center">
-    <strong>{{city.cidade}} / {{city.uf}}</strong>
-    </div>
       <table class="table" id="tabledata">
         <tr>
           <th>IDH-M</th>
@@ -38,7 +32,7 @@
         <tr>
           <th>Sistema de ensino</th>
           <td>{{city["SISTEMA"]}}</td>
-        </tr>        
+        </tr>
         <tr>
           <th>Possui plano municipal?</th>
           <td>{{city["POSSUI_PLANO_MUNIC"]}}</td>
@@ -50,13 +44,13 @@
 
       </table>
 
-      
+
     </div>
     <a href="#/cities/{{city.id}}" class="btn btn-primary btn-block">Detalhes</a>
   </div>
 </div>
 <script>
-  
+
   //L.mapbox.map('map', 'acaoeducativa.mg3o1opk');
 </script>
 <style>
