@@ -26,7 +26,7 @@ angular
     $rootScope.getUfs = function(){
       var t = this;
       console.log("buscando estados")
-      $http.get("/data/states.json").success(function(dt){
+      $http.get("data/states.json").success(function(dt){
         $rootScope.ufs = dt;
         $rootScope.getCities();
       })
@@ -34,7 +34,7 @@ angular
     $rootScope.getCities = function(){
       console.log("buscando cidades")
       var t = this;
-      $http.get("/data/cities.json").success(function(dt){
+      $http.get("data/cities.json").success(function(dt){
         $rootScope.cities = dt;
         jj = dt;
         $rootScope.loading = false;
