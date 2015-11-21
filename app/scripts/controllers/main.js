@@ -1,6 +1,7 @@
 'use strict';
 var globalmap
 var layer
+var marker
 /**
  * @ngdoc function
  * @name mapaSistensinoApp.controller:MainCtrl
@@ -19,6 +20,11 @@ angular.module('mapaSistensinoApp')
 
     $rootScope.$watch("selectedCityId", function(){
     	$scope.city = $rootScope.selectedCity;
+      if($scope.city){
+        marker.setLatLng([parseFloat($scope.city.lat.replace(",", ".")),parseFloat($scope.city.lng.replace(",", "."))])
+
+      }
+
     })
     $scope.layers = []
     $scope.loadData = function(){
@@ -47,12 +53,28 @@ angular.module('mapaSistensinoApp')
       $scope.layers[3].addTo(globalmap)
       $scope.lastZindex = 0
 
+      marker = L.marker([0, 0], {
+        icon: L.mapbox.marker.icon({
+          'marker-color': '#f86767'
+
+        })
+      });
+      marker.addTo(globalmap);
+
 
     }
 
     $scope.selectMap = function(v){
       $scope.currentMap = v;
       $scope.layers[$scope.currentMap].setZIndex(++$scope.lastZindex)
+    }
+
+    $scope.getCityName = function(){
+      if($scope.city){
+        return $scope.city.cidade + " / " + $scope.city.uf;
+      } else {
+        return "Clique em uma cidade"
+      }
     }
 
     $scope.showActive = function(n){
@@ -67,10 +89,21 @@ angular.module('mapaSistensinoApp')
         $scope.$apply();
       })
     }
+
+    $scope.zoomToCity = function(){
+      console.log($scope.city)
+      globalmap.setView([$scope.city.lat, $scope.city.lng], 7)
+    }
+
     $scope.$watch("selectedCity", function(){
       if(!$scope.selectedCity) return;
       try {
         $rootScope.setCity($scope.selectedCity.originalObject.id);
+        setTimeout(function(){
+          $scope.zoomToCity()
+          $scope.$apply()
+        }, 500)
+
       } catch(e){
 
       }

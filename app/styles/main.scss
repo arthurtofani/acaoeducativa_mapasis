@@ -26,14 +26,13 @@ body {
 }
 
 .index-header {
-background-color: white;
-background-image: url(/images/header.png);
-height: 148px;
-background-repeat: no-repeat;
-width: 800px;
-margin-left: auto;
-margin-right: auto;
-background-size: contain;
+  background-color: white;
+  background-image: url(header.png);
+  height: 145px;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: contain;
+  background-position-x: center;
 }
 
 .index-all {
@@ -47,11 +46,105 @@ background-size: contain;
   margin-right:auto;
   background-color:#ffc55c;
 
+  button.btn.btn-default {
+    background-color: #ffffc3;
+    color: black;
+    &.active {
+      background-color:#e95d35;
+      color:white
+    }
+  }
+
+}
+
+.index-footer {
+  height: 289px;
+  background-color:#e95d35;
+  width:800px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.box1 {
+  background-color: #ffffc3;
+  margin: 10px;
+  padding: 9px;
+  height: 131px;
+  text-align: center;
+  h3 {
+    color:#e95d35;
+    margin-top:5px;
+    font-size:20px;
+    height: 43px;
+  }
+  p {
+    font-size:12px;
+  }
+}
+
+.box2 {
+  float:left;
+  height:100px;
+  width:20%;
+  padding-left: 10px;
+  padding-right: 10px;
+  .box2int {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 132px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+  }
+}
+
+.bottom {
+  background-color:white;
+}
+
+.bottom-internal {
+  width:800px;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+
+.logo-bottom {
+  height: 50px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.logo-bottom1 {background-image:url(patr_acaoed.png)}
+.logo-bottom2 {background-image:url(patr_greppe.png)}
+.logo-bottom3 {background-image:url(patr_open.png)}
+
+.bi1 {
+  background-image:url(sist_abril.png)
+}
+.bi2 {
+  background-image:url(sist_positivo.png)
+}
+.bi3 {
+  background-image:url(sist_pearson.png)
+}
+.bi4 {
+  background-image:url(sist_objetivo.png)
+}
+.bi5 {
+  background-image:url(sist_uno.png)
+}
+
+.index-content {
+  background-image:url(bg.png);
+  background-size: 520px 843px;
 }
 
 .internal {
-  margin: 6px;
   margin-left: 22px;
+  padding:5px;
 
 }
 
