@@ -26,10 +26,10 @@
     <div class="lat-esq">
       <table class="table" id="tabledata">
         <tr>
-          <th>IDH-M</th>
+          <th style="width: 52%;">IDH-M</th>
           <td>{{city["IDH"]}}</td>
         </tr>
-        <tr>
+        <tr  style="height: 47px;">
           <th>Sistema de ensino</th>
           <td>{{city["SISTEMA"]}}</td>
         </tr>
@@ -37,13 +37,12 @@
           <th>Possui plano municipal?</th>
           <td>{{city["POSSUI_PLANO_MUNIC"]}}</td>
         </tr>
-        <tr>
+        <tr  style="height: 47px;">
           <th>Sistema próprio?</th>
           <td>{{city["SIST_PROPRIO"]}}</td>
         </tr>
 
       </table>
-
 
     </div>
     <div class="btn-group-vertical" role="group" aria-label="..." style="width:100%;">
@@ -52,8 +51,167 @@
       <button type="button" class="btn btn-default" ng-class="showActive(2)" ng-click="selectMap(2)">Plano municipal</button>
       <button type="button" class="btn btn-default" ng-class="showActive(3)" ng-click="selectMap(3)">Sistema Próprio</button>
     </div>
+
+    <div class="map-legend">
+      <ng-include src="currentLegend"></ng-include>
+    </div>
+
   </div>
 </div>
+
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">
+            <ng-include src="modalTitle"></ng-include>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <ng-include src="modalContent"></ng-include>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/ng-template" id="title0">
+    <div>O QUE SÃO?</div>
+</script>
+<script type="text/ng-template" id="title1">
+    <div>AMEAÇAS AO DIREITO À EDUCAÇÃO</div>
+</script>
+<script type="text/ng-template" id="title2">
+    <div>CONHEÇA A PESQUISA</div>
+</script>
+
+<script type="text/ng-template" id="content0">
+    <p>Sistemas privados de ensino são pacotes de produtos e serviços oferecidos por empresas privadas a redes de ensino de estados e municípios.</p>
+
+  <p>As atividades e produtos, que normalmente são desenvolvidos pelas equipes pedagógicas dos órgãos da administração pública e das escolas, podem ir de materiais didáticos, geralmente conhecidos como apostilas, a formação continuada de educadores, acompanhamento e supervisão das atividades docentes, processos de avaliação externa e interna e pacotes de gestão.</p>
+
+</script>
+<script type="text/ng-template" id="content1">
+  <p>Os grupos empresariais e conglomerados econômicos têm buscado outras formas de lucrar com a educação que não exclusivamente com a oferta direta do ensino (matrículas em escolas privadas), colocando em risco os paradigmas de direitos humanos educacionais. Veja quais são as principais ameaças:</p>
+
+  <ul>
+  <li>
+  A crescente aplicação de recursos públicos na compra de sistemas privados de ensino acarreta duplicação e/ou perda de recursos oferecidos gratuitamente pelo governo federal via Programa Nacional do Livro Didático, o que reduz substancialmente a capacidade dos municípios de disponibilizar novas vagas no sistema público, principalmente nas etapas não obrigatórias e naquelas em que é baixa a cobertura, com prejuízo para as populações mais pobres, as crianças com idade de frequência à creche, os jovens e adultos com baixa escolaridade e os estudantes com deficiência ou com necessidades educativas especiais.
+  </li>
+  <li>
+
+  A adoção de sistemas privados de ensino enfraquece a capacidade dos próprios municípios criarem, gerirem e implementarem diretamente políticas que garantam educação de qualidade para todos e todas, uma vez que parte das equipes técnicas e das atividades passam a ser externos aos órgãos públicos.
+  </li>
+  <li>
+  Por serem adotados, muitas vezes, com base em critérios de qualidade referenciado no marketing das empresas, os sistemas privados de ensino não necessariamente passam por um processo de controle de qualidade por órgãos governamentais reconhecidos, como ocorre com os materiais do Programa Nacional do Livro Didático. Por isso, não há garantia da adequação destes materiais às diretrizes curriculares nacionais ou do reconhecimento de estudantes com deficiência ou necessidades especiais, do campo, de comunidades indígenas e quilombolas e demais populações tradicionais.
+  </li>
+  <li>
+  A adoção dos sistemas privados enfatiza o planejamento centralizado dos aspectos pedagógicos e a padronização do trabalho docente e discente, em detrimento dos mecanismos de participação democrática. Como reflexo, tendem a violar os deveres estatais quanto ao reconhecimento da diversidade cultural e pedagógica, que deveriam ser respeitadas, protegidas e promovidas pelo Estado.
+  </li>
+  </ul>
+</script>
+<script type="text/ng-template" id="content2">
+
+<h4>Pearson / Núcleo de Apoio a Municípios e Estados (NAME)</h4>
+<p><strong>Histórico:</strong> A Pearson, fundada ainda no século XIX, se autodenomina a “maior empresa de educação do mundo”. Em 2010, o Grupo Pearson comprou do Sistema Educacional Brasileiro (SEB) – grupo de capital aberto, mas com origem familiar – parte dos produtos e serviços oferecidos, envolvendo dois sistemas privados de ensino (Pueri Domus e Dom Bosco) e o Núcleo de Apoio à Municipalização do Ensino Fundamental (NAME), que passou a se chamar Núcleo de Apoio a Municípios e Estados, responsável pelo fornecimento de sistemas privados a redes públicas de ensino. A negociação envolveu o montante de US$ 497 milhões.</p>
+<p><strong>Tipo de capital:</strong> Aberto</p>
+<p><strong>Produtos e serviços vendidos:</strong> Atendimento à Educação Infantil e Ensino Fundamental, com três modelos de materiais distintos para estudantes; material virtual e impresso de orientação a educadores; assessorias com visitas às escolas e formação docente; e oferta de avaliações aplicadas presencialmente e à distância, com suporte técnico para as equipes governamentais.</p>
+
+<hr />
+
+<h4>Abril Educação / Anglo</strong></h4>
+<p><strong>Histórico:</strong> A Abril Educação, hoje com o nome de Somos Educação, é fornecedora do Sistema Anglo de Ensino desde 2010, quando o sistema foi adquirido da empresa Anglo Vestibulares. O grupo agrega as editoras Ática e Scipione, cinco cursos preparatórios para exames vestibulares e outros tipos de concursos, duas escolas de ensino de idiomas, uma empresa de ensino telepresencial, uma empresa que oferece cursos preparatórios para o Enem, uma empresa de ensino móvel (cursos via celular), uma empresa de e-learning para preparação profissional, um programa para formação de lideranças em escolas de ensino fundamental e cinco sistemas privados de ensino, dentre os quais o Sistema Anglo. No início de 2015, a Thunnus Participações, administrada pela gestora de fundos Tarpone, detentora desde 2014 de 24% de suas ações, adquire o restante do grupo da Abrilpar por R$ 1.309.489.668,67.</p>
+<p><strong>Tipo de capital:</strong> Aberto</p>
+<p><strong>Produtos e serviços vendidos:</strong> Atendimento à Educação Infantil, Ensino Fundamental, Ensino Médio e Pré-Vestibular, com materiais organizados por bimestres e cadernos digitais; manual do professor; sugestões de calendários com atividades e material virtual de orientação; sistema de análise de simulados, com produção de avaliações de alunos por disciplina, análise de dados, produção de relatório e geração de ranking para uso dos gestores.</p>
+
+<hr />
+
+<h4>Grupo Santillana / Uno Público</strong></h4>
+<p><strong>Histórico:</strong> O grupo Santillana foi criado em 1960 e, ao adquirir a editora Moderna, também comprou o sistema de ensino a ela vinculado: Sistema Uno. A Santillana é o braço editorial do grupo espanhol Promotora de Informação Sociedade Anônima (Prisa), grupo com atuação em 22 países de língua espanhola e portuguesa. A corporação tem quatro áreas de atividade: rádio, imprensa, áudio visual e editorial/educação. Também integra o grupo Prisa a empresa Avalia Assessoria Educacional, que atua, desde 2005, em redes públicas e escolas privadas assessorando na implantação de avaliações de desempenho.</p>
+<p>Segundo a página oficial do grupo, em 2010, o fundo privado DLJ South American Partners, ao adquirir 25% das ações da empresa, foi incorporado como sócio. Já no final do 1º semestre de 2014, a Santillana Ediciones Generales foi adquirida pelo grupo Penguin Random House, que é composto em 53% por um grupo alemão e 47% pelo grupo inglês Pearson, que também atua no Brasil comercializando sistemas privados de ensino. </p>
+<p><strong>Tipo de capital:</strong> Aberto</p>
+<p><strong>Produtos e serviços vendidos:</strong> Material didático para Educação Infantil, Ensino Fundamental e Pré-Vestibular, com manual do professor e material virtual; acompanhamento ao longo do ano letivo; atendimento às escolas e secretarias de educação; oficinas e formação continuada para docentes; e avaliação educacional e institucional.</p>
+
+<hr />
+
+<h4>Grupo Objetivo / Sistema Objetivo Municipal de Ensino (SOME)</strong></h4>
+<p><strong>Histórico:</strong> O Grupo Objetivo foi fundado por João Carlos Di Gênio, proprietário de uma rede de escolas, uma grande universidade, rádios, emissoras de televisão e propriedades em área rural, além dos sistemas privados de ensino vendidos para escolas públicas e privadas. O grupo distribui seu material pela Editora Sol Soft. Até o primeiro semestre de 2015, o grupo mantinha-se sob controle de seu fundador.</p>
+<p><strong>Tipo de capital:</strong> Fechado até o 1º semestre de 2015</p>
+<p><strong>Produtos e serviços vendidos:</strong> Material didático oferecido em módulos semestrais, anuais ou bimestrais para a Educação Infantil, Ensino Fundamental e Ensino Médio; material de apoio para a equipe responsável pela gestão escolar e material virtual de orientação para professores; encontros pedagógicos e cursos modulares para professores; e avaliação institucional e de resultados dos estudantes em testes para elaboração de diagnóstico.</p>
+
+<hr />
+
+<h4>Grupo Positivo / Sistema de Ensino Aprende Brasil (SABE)</strong></h4>
+<p><strong>Histórico:</strong> O Grupo Positivo, responsável pela venda do Sistema de Ensino Aprende Brasil (SABE), teve origem em cursos pré-vestibulares na década de 1970 e expandiu sua atuação para o ensino superior no final da década de 1980. Neste mesmo período, expandem suas atividades também para a área de informática, com a criação da Positivo Informática, que comercializa equipamentos e serviços de informática para instituições privadas e públicas. Em 2013 anunciou-se a disposição da venda ou abertura de capital do Grupo Positivo, o que ainda não havia sido concretizado até 2015.</p>
+<p><strong>Tipo de capital:</strong> Fechado até o 1º semestre de 2015</p>
+<p><strong>Produtos e serviços vendidos:</strong> Livro didático para Educação Infantil, Ensino Fundamental e Ensino Médio, agregando as diferentes disciplinas e integrado a atividades disponíveis no portal do sistema de ensino; orientação e material para professores; assessoria pedagógica a docentes e equipes técnicas das secretarias de educação para orientar a implantação do sistema;  formação continuada para docentes e equipes técnicas; ferramenta de gestão das informações educacionais; e avaliações de desempenho de estudantes, segundo os padrões da Prova Brasil.</p>
+
+</script>
+
+
+
+ <script type="text/ng-template" id="l0">
+    <div class='my-legend'>
+    <div class='legend-scale'>
+      <ul class='legend-labels'>
+        <li><span style='background:#ed0c35;'></span>Sistema de Ensino Aprende Brasil (SABE)</li>
+        <li><span style='background:#eda213;'></span>Anglo</li>
+        <li><span style='background:#8938d7;'></span>NAME</li>
+        <li><span style='background:#a8ee0c;'></span>Sistema Objetivo Municipal de Ensino</li>
+        <li><span style='background:#beaa13;'></span>Uno Público</li>
+        <li><span style='background:#efefef;'></span>Não informado</li>
+      </ul>
+    </div>
+    </div>
+  </script>
+
+  <script type="text/ng-template" id="l1">
+ <div class='my-legend'>
+  <div class='legend-scale'>
+    <ul class='legend-labels' style='padding-left:30px'>
+      <li><span style='background:#f0e1e0;'></span> &lt; 500</li>
+      <li><span style='background:#ddaead;'></span> 500-600</li>
+      <li><span style='background:#cc8c8f;'></span> 600-650</li>
+      <li><span style='background:#b65f62;'></span> 650-700</li>
+    </ul>
+    <ul class='legend-labels' style='padding-left:30px'>
+      <li><span style='background:#a84143;'></span> 700-750</li>
+      <li><span style='background:#901919;'></span> 750-800</li>
+      <li><span style='background:#7f0505;'></span> &gt; 800 </li>
+    </ul>
+  </div>
+  </div>
+  </script>
+
+ <script type="text/ng-template" id="l2">
+    <div class='my-legend'>
+    <div class='legend-scale'>
+      <ul class='legend-labels'>
+        <li><span style='background:#b02cec;'></span>Com plano municipal próprio</li>
+        <li><span style='background:#efefef;'></span>Sem plano municipal próprio</li>
+        <li><span style='background:#ec0d0d;'></span>Recusa</li>
+      </ul>
+    </div>
+    </div>
+  </script>
+
+ <script type="text/ng-template" id="l3">
+    <div class='my-legend'>
+    <div class='legend-scale'>
+      <ul class='legend-labels'>
+        <li><span style='background:#e87427;'></span>Com sistema próprio de ensino</li>
+        <li><span style='background:#efefef;'></span>Sem sistema próprio de ensino</li>
+
+      </ul>
+    </div>
+    </div>
+  </script>
+
 <script>
 
   //L.mapbox.map('map', 'acaoeducativa.mg3o1opk');

@@ -17,6 +17,17 @@ angular.module('mapaSistensinoApp')
     $scope.loading = true;
     $scope.city = null
     $scope.currentMap = 0;
+    $scope.modalIdx = 0;
+    $scope.modalTitle = "title0"
+    $scope.modalContent = "content0"
+
+    $(".box1").click(function(e){
+      $scope.modalIdx = $(".box1").index(this)
+      $scope.modalTitle = "title" + $scope.modalIdx
+      $scope.modalContent = "content" + $scope.modalIdx
+      $scope.$apply();
+      $("#myModal").modal('show')
+    })
 
     $rootScope.$watch("selectedCityId", function(){
     	$scope.city = $rootScope.selectedCity;
@@ -60,13 +71,18 @@ angular.module('mapaSistensinoApp')
         })
       });
       marker.addTo(globalmap);
-
+      $scope.currentLegend = "l0"
 
     }
 
     $scope.selectMap = function(v){
       $scope.currentMap = v;
       $scope.layers[$scope.currentMap].setZIndex(++$scope.lastZindex)
+      $scope.loadLegend()
+    }
+
+    $scope.loadLegend = function(){
+      $scope.currentLegend = "l" + $scope.currentMap
     }
 
     $scope.getCityName = function(){
